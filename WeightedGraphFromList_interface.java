@@ -28,5 +28,6 @@ public interface WeightedGraphFromList_interface{
 	 public String getAllPaths(String start, String mid, String end, int layer,int numOfEdges, int nthEdge);
 		public String getLightestPath();
 		public String getShortestPaths();
+		
 }
 

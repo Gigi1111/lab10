@@ -11,7 +11,6 @@ import java.util.Set;
 
 public class WeightedGraphFromList implements WeightedGraphFromList_interface{
 	HashMap<String, LinkedList<Edge> > hmap = new HashMap<String, LinkedList<Edge>>(); 
-	
 	boolean directed = false;
 	LinkedList<LinkedList<Edge>> paths= new LinkedList<LinkedList<Edge>>();
 	String result="";
@@ -43,14 +42,57 @@ public class WeightedGraphFromList implements WeightedGraphFromList_interface{
 			e.printStackTrace();  
 		}  
 	}
-	 
+	public void createRandomRelationGraphFromFile(String fileLocation, int v,int e) {
+		LinkedList<String> namelist =new LinkedList<String>();
+        try{  
+			File file=new File(fileLocation);    //creates a new file instance  
+			FileReader fr=new FileReader(file);   //reads the file  
+			BufferedReader br=new BufferedReader(fr);  //creates a buffering character input stream  
+		
+			String line="";
+			while((line=br.readLine())!=null) {	
+				namelist.add(line);
+			}
+			fr.close();    //closes the stream and release the resources  
+		}catch(IOException err){  
+			err.printStackTrace();  
+		}  
+        setGraphDirected(true);
+        String[] relations= {"has liked","has crush on","has loved","has envied","has respected","has idolized","has hated","has cheated on","has helped","has raised"};
+        if(v>namelist.size())v=namelist.size();
+        while(v>0) {
+        	String s = namelist.get((int)(Math.random()*namelist.size()));
+        	
+        	if(!hasVertex(s)){
+        		addVertex(s);
+        	}else v++;
+        	
+        	v--;
+        }
+        while(e>0) {
+        	String[] vertexlist = getVertex();
+        	String s = vertexlist[(int)(Math.random()*hmap.size())];
+        	String d = vertexlist[(int)(Math.random()*hmap.size())];
+        	if(d.equals(s)) continue;
+        	
+        	String r = relations[(int)(Math.random()*5)];;
+        	int yr=(int)(Math.random()*100);
+        	if(!hasEdge(s,d,r,yr)){
+    			addEdge(s,d,r,yr);
+        	}else continue;
+        	e--;
+        }
+        toString();
+        RelationGraphToString();
+	}
+	
     public String[] getVertex() {
     	 Set<String> s = hmap.keySet();
          String[] choices = new String[s.size()];
          int i=0;
          for (String x : hmap.keySet()) { 
              choices[i++]=x; 
-             System.out.print(x+";"); 
+         //    System.out.print(x+";"); 
          }
          return choices;
      }
@@ -113,6 +155,17 @@ public class WeightedGraphFromList implements WeightedGraphFromList_interface{
     	 //System.out.println("The graph has no edge between " + source + " and " + destination + ".");
         return false;
     }
+    public String RelationGraphToString() {
+   	 String result = "\nRelations:\n"; 
+   	  
+        for (String ss : hmap.keySet()) {
+            for (Edge e : hmap.get(ss)) { 
+               result+= ss+e.trans+" "+e.destination + "for "+e.time+" years.\n"; 
+            } 
+        } 
+        System.out.println(result);
+        return result; 
+   }
     @Override
     public String toString() {
     	 String result = ""; 
@@ -120,7 +173,7 @@ public class WeightedGraphFromList implements WeightedGraphFromList_interface{
          for (String ss : hmap.keySet()) { 
              result+= ss + ": "; 
              for (Edge e : hmap.get(ss)) { 
-                result+= e.destination + ", "; 
+                result+= e.destination; 
              } 
              result+="\n"; 
          } 
@@ -129,9 +182,10 @@ public class WeightedGraphFromList implements WeightedGraphFromList_interface{
     }
     public static void main(String args[]) 
     { 
+//    	WeightedGraphFromList g = new WeightedGraphFromList(); 
+//    	g.createGraphFromFile("src/lab10/Routes.txt");
     	WeightedGraphFromList g = new WeightedGraphFromList(); 
-    	g.createGraphFromFile("src/lab10/Routes.txt");
-    	g.getVertex();
+    	g.createRandomRelationGraphFromFile("src/lab10/Names.txt",10,10);
     }
     public void printPath() {
 		if(paths.size()>0) {
