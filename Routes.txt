@@ -1,0 +1,20 @@
+Alexanderplatz,Schöneweide,S9,21
+Schöneweide,HTW,Tram60,6
+Alexanderplatz,Tierpark,U5,16
+Tierpark,HTW,Tram27,16
+Tierpark,Wilhelminenhofstr./Edisonstr.,Tram37,14
+Wilhelminenhofstr./Edisonstr.,HTW,Tram60,3
+Alexanderplatz,Ostkreuz,RE2,4
+Ostkreuz,Schöneweide,RB24,6
+Schöneweide,HTW,Tram67,6
+Alexanderplatz,Rosenthaler Platz,U8,3
+Rosenthaler Platz,Friedrich-Krause-Ufer,Bus142,14
+Friedrich-Krause-Ufer,Ausländerbehörde,walking,5
+Alexanderplatz,Berlin Hbf,S9,6
+Berlin Hbf,Friedrich-Krause-Ufer,Bus142,4
+Alexanderplatz,Pankstraße,U8,9
+Pankstraße,Am Nordhafen,M27,8
+Am Nordhafen,Ausländerbehörde,walking,8
+Alexanderplatz,Osloer Straße,U8,11
+Osloer Straße,Amrumer Straße,U9,4
+Amrumer Straße,Ausländerbehörde,walking,9

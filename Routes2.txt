@@ -1,0 +1,8 @@
+HTW,Koepenic,tram27,14
+Koepenic,Schoneweide,tram67,21
+Schoneweide,Alex,tram30,21
+Alex,Zoo,S7,20
+Koepenic,Ostbahnhof,S5,10
+Ostbahnhof,Schoneweide,S8,15
+Schoneweide,Rathaus,S2,15
+Rathaus,HTW,S1,15
