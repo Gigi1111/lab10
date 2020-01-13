@@ -8,29 +8,6 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
-//sch>htw>ko>sch, repeat, didn't check getLast.destination==start
-
-//htw->scho
-//htw->ko->scho
-//htw->ko?? becuz for copies th elast need to check if something doesn't contain the destination, remove
-
-//Aalex - tram67(21) -> Schoneweide - tram60(10) -> HTW - tram27(14) -> Koepenic
-//Aalex - tram67(21) -> Schoneweide - tram60(10) -> HTW - tram67(21) -> Koepenic
-//Aalex - tram67(21) -> Schoneweide
-//shoudl have alex->sch->ko and not the last , the second line is becuz htw should be deleted but not
-
-//scho-alec55
-//Schoneweide -> HTW -> Koepenic -> Schoneweide 
-//sch->htw,ko,alex
-//htw->sch,ko
-//ko->htw,sch
-//alex->sch
-
-//ko-alec
-//should be (1)k-htw-sch-a (2) k-sch-a
-//not
-
-//correct(ko->sch)(scho-htw)(alex-sch)
 public class WeightedGraphFromList4{
 	 HashMap<String, LinkedList<Edge>> hmap = new HashMap<String, LinkedList<Edge>>();
      
@@ -110,8 +87,6 @@ public class WeightedGraphFromList4{
 				//create a new path to continue the search
 				list.add(new LinkedList<Edge>());//if at the end one edge is empty, delete empty edge
 				printPath();
-				//a->b1->c(here,layer2)
-				//a->b2->c
 				System.out.println("list size:"+list.size());
 				System.out.println("nthEdge;numOfEdge:"+nthEdge+";"+hmap.get(mid).size());
 				if(layer>0 && nthEdge<(hmap.get(mid).size()-1)&&list.size()>=2) {//back up one layer to explore other routes
@@ -172,9 +147,6 @@ public class WeightedGraphFromList4{
 				if(!repeat) {
 					System.out.println("in not repeat for edge: "+hmap.get(mid).get(i).source+"->"+hmap.get(mid).get(i).destination);
 					printPath();
-//					//
-//					if(list.getLast().size()==0 &&
-//							hmap.get(mid).get(i).source.equals("Koepenic")) continue;
 					list.getLast().add(hmap.get(mid).get(i));
 					System.out.println("add edge:");
 					printPath();
@@ -205,8 +177,6 @@ public class WeightedGraphFromList4{
 				
 			}
 		
-//		//htw - schoneweide - alex
-//		//htw - koepenik -ostbahnhof - alex
 		//if back to layer 0 before return, check if there's empty edge and invalid edges
 		if(layer==0) {
 			System.out.println("before return check emty:");
@@ -303,51 +273,3 @@ public class WeightedGraphFromList4{
 	
 	}
 }
-
-//public void getPaths(int start,int mid, int end) {
-////LinkedList<Edge> list = adjacencylist[mid];
-////// System.out.println(start+","+mid+","+end);
-////printPaths();
-////  //first check if we already got to the destination
-////    if(mid==end) {
-////		pathCount++;//add a path
-////		return;//found
-////	}else if(mid == start) {	   
-////    	pathList.add(new LinkedList<Object>());
-////    	 pathList.get(pathCount).add(start);
-////    	 printPaths();
-////	}
-////  //if too long or at the end
-////    else if(list.size()==0 || 
-////    		(pathList.size()>0 && 
-////    (pathList.get(pathList.size()-1).size()>vertices
-////    		)
-////    )) {		            	
-////  		 pathList.get(pathList.size()-1).removeLast();
-////  		pathCount=pathList.size();
-////    	return;
-////    }
-////for (int j = 0; j <list.size() ; j++) {
-////	//add another path with same starting path
-////	 if(pathCount>=pathList.size() && pathCount>0){
-////		 pathList.add(new LinkedList<Object>());
-////        	 for(int k=0;k<pathList.get(pathCount-1).size();k++) {
-////        		pathList.get(pathCount).add(pathList.get(pathCount-1).get(k));
-////        		 if(list.get(j).source==(int)pathList.get(pathCount-1).get(k))break;	 
-////	            }
-////	 }
-////	 //if going in circle
-////	  if( pathList.get(pathList.size()-1).contains(list.get(j).destination)) {	   		  	        		//move on to next edge if has next edge	
-////        	if(j==list.size()-1) {
-////        		pathList.removeLast();
-////        		pathCount=pathList.size();
-////        		return;
-////        	}
-////        	continue;
-////		}	        		
-////	//just add a node
-////	pathList.get(pathCount).add(list.get(j).destination);
-////    getPaths(start,list.get(j).destination, end);			  
-////}        
-////return;
-////}
