@@ -1,4 +1,4 @@
-Alexanderplatz,Schöneweide,S9,21
+ Alexanderplatz,Schöneweide,S9,21
 Schöneweide,HTW,Tram60,6
 Alexanderplatz,Tierpark,U5,16
 Tierpark,HTW,Tram27,16

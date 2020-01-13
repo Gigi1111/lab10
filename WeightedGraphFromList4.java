@@ -209,7 +209,7 @@ public class WeightedGraphFromList4{
 		return "not base layer yet";
 	}
 	public String listToString(LinkedList<LinkedList<Edge>> l) {
-		String s="Paths:\n";
+		String s="";
 		if(l.isEmpty())
 			return "No connecting routes";
 		
@@ -242,8 +242,8 @@ public class WeightedGraphFromList4{
 				shortPathList.add(list.get(i));
 			}
 		}
-		return "You need to transfer "+(shortest-1)+"time or more.\n "
-				+ "You have "+shortPathList.size()+" shortest routes:\n"+listToString(shortPathList);
+		return "You need to transfer "+(shortest-1)+" time or more.\n"
+				+ "You have "+shortPathList.size()+" shortest route(s):\n"+listToString(shortPathList);
 	}
 	//equals lightest weighted path becuz weight is the duration of transportation
 	public String getQuickestRoutes() {
