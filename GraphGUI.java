@@ -27,7 +27,7 @@ import javax.swing.UIManager;
  */
 public class GraphGUI extends JFrame {
      
-	static WeightedGraphFromList4 wg = new WeightedGraphFromList4();
+	static WeightedGraphFromList wg = new WeightedGraphFromList();
 	static  JComboBox<String> cb;
     static JComboBox<String> cb1;
     
@@ -105,21 +105,21 @@ public class GraphGUI extends JFrame {
     	 buttonAllRoutes.addActionListener(new ActionListener() {
      	    @Override
      	    public void actionPerformed(ActionEvent e) {
-     	    	tf.setText(wg.getAllRoutes((String)cb.getSelectedItem(),(String)cb.getSelectedItem(),(String)cb1.getSelectedItem(),0,0,0));  	
+     	    	tf.setText(wg.getAllPaths((String)cb.getSelectedItem(),(String)cb.getSelectedItem(),(String)cb1.getSelectedItem(),0,0,0));  	
      	    }
      	});
     	 buttonLeastTransferRoutes.addActionListener(new ActionListener() {
       	    @Override
       	    public void actionPerformed(ActionEvent e) {
-      	    	wg.getAllRoutes((String)cb.getSelectedItem(),(String)cb.getSelectedItem(),(String)cb1.getSelectedItem(),0,0,0);
-      	    	tf.setText(wg.getLeastTransferRoutes());  	
+      	    	wg.getAllPaths((String)cb.getSelectedItem(),(String)cb.getSelectedItem(),(String)cb1.getSelectedItem(),0,0,0);
+      	    	tf.setText(wg.getShortestPaths());  	
       	    }
       	});
     	 buttonQuickestRoutes.addActionListener(new ActionListener() {
       	    @Override
       	    public void actionPerformed(ActionEvent e) {
-      	    	wg.getAllRoutes((String)cb.getSelectedItem(),(String)cb.getSelectedItem(),(String)cb1.getSelectedItem(),0,0,0);
-      	    	tf.setText(wg.getQuickestRoutes()); 
+      	    	wg.getAllPaths((String)cb.getSelectedItem(),(String)cb.getSelectedItem(),(String)cb1.getSelectedItem(),0,0,0);
+      	    	tf.setText(wg.getLightestPath()); 
       	    	}
       	});
 	}
@@ -131,7 +131,7 @@ public class GraphGUI extends JFrame {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        wg.createGraph();
+        wg.createGraphFromFile("src/lab10/Routes.txt");
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
