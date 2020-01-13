@@ -27,7 +27,7 @@ import javax.swing.UIManager;
  */
 public class GraphGUI extends JFrame {
      
-	static WeightedGraphFromList wg = new WeightedGraphFromList();
+	static WeightedGraphFromList wg = new WeightedGraphFromList("src/lab10/Routes.txt");
 	static  JComboBox<String> cb;
     static JComboBox<String> cb1;
     
@@ -131,7 +131,6 @@ public class GraphGUI extends JFrame {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        wg.createGraphFromFile("src/lab10/Routes.txt");
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {

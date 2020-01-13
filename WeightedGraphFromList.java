@@ -14,7 +14,13 @@ public class WeightedGraphFromList implements WeightedGraphFromList_interface{
 	boolean directed = false;
 	LinkedList<LinkedList<Edge>> paths= new LinkedList<LinkedList<Edge>>();
 	String result="";
-	public void createGraphFromFile(String fileLocation) {
+	 public static void main(String args[]) 
+	    { 
+//	    	WeightedGraphFromList g = new WeightedGraphFromList("src/lab10/Routes.txt"); 
+	    	WeightedGraphFromList g = new WeightedGraphFromList("src/lab10/Names.txt",20,40); 
+
+	    }
+	public WeightedGraphFromList(String fileLocation) {
 //		WeightedGraphFromList g = new WeightedGraphFromList();
         try{  
 			File file=new File(fileLocation);    //creates a new file instance  
@@ -42,7 +48,7 @@ public class WeightedGraphFromList implements WeightedGraphFromList_interface{
 			e.printStackTrace();  
 		}  
 	}
-	public void createRandomRelationGraphFromFile(String fileLocation, int v,int e) {
+	public WeightedGraphFromList(String fileLocation, int v,int e) {
 		LinkedList<String> namelist =new LinkedList<String>();
         try{  
 			File file=new File(fileLocation);    //creates a new file instance  
@@ -180,13 +186,7 @@ public class WeightedGraphFromList implements WeightedGraphFromList_interface{
          System.out.println(result);
          return result; 
     }
-    public static void main(String args[]) 
-    { 
-//    	WeightedGraphFromList g = new WeightedGraphFromList(); 
-//    	g.createGraphFromFile("src/lab10/Routes.txt");
-    	WeightedGraphFromList g = new WeightedGraphFromList(); 
-    	g.createRandomRelationGraphFromFile("src/lab10/Names.txt",10,10);
-    }
+   
     public void printPath() {
 		if(paths.size()>0) {
 			 System.out.println("Print Path of size "+paths.size()+":");
