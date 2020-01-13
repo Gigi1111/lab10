@@ -48,9 +48,7 @@ public class GraphGUI extends JFrame {
        //
          cb = new JComboBox<String>(choices);
         cb1 = new JComboBox<String>(choices);
-        
-        
-         
+
         // create a new panel with GridBagLayout manager
         JPanel newPanel = new JPanel(new GridBagLayout());
          
@@ -59,40 +57,30 @@ public class GraphGUI extends JFrame {
         constraints.insets = new Insets(10, 10, 10, 10);
          
         // add components to the panel
-       // constraints.gridx = 0;
         constraints.gridy = 0;     
         newPanel.add(labelStart, constraints);
  
-        //constraints.gridx = 1;
         constraints.gridy = 0;   
         constraints.gridwidth = 20;
         newPanel.add(cb, constraints);
-        //newPanel.add(textUsername, constraints);
-         
-     //   constraints.gridx = 0;
+
         constraints.gridy = 1;     
         newPanel.add(labelEnd, constraints);
          
-    //    constraints.gridx = 1;
         constraints.gridy = 1;  
         constraints.gridwidth = 20;
         newPanel.add(cb1, constraints);
         
-        
-     //   constraints.gridx = 0;
         constraints.gridy = 2;
         constraints.gridwidth = 2;
         constraints.anchor = GridBagConstraints.CENTER;
         newPanel.add(buttonAllRoutes, constraints);
       
-         
-     //   constraints.gridx = 0;
         constraints.gridy = 3;
         constraints.gridwidth = 2;
         constraints.anchor = GridBagConstraints.CENTER;
         newPanel.add(buttonLeastTransferRoutes, constraints);
         
-      //  constraints.gridx = 0;
         constraints.gridy = 4;
         constraints.gridwidth = 2;
         constraints.anchor = GridBagConstraints.CENTER;
